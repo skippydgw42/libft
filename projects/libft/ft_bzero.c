@@ -6,13 +6,13 @@ void    ft_bzero(void *s, size_t n)
     unsigned char   *ptr;
 
     i = 0;
-    ptr = s;
+    ptr = (unsigned char)s;
     if (n == 0)
         return ;
-    while (n)
+    while (i < n)
     {
         ptr[i] = '\0';
         i++;
-        n--;
     }
+    ptr[i] = '\0';
 }
