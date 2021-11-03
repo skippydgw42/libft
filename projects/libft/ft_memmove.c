@@ -35,5 +35,6 @@ void    *ft_memmove(void *dst, const void *src, size_t n)
     }
     else
         ft_memcpy(dst, src, n);
+    free (temp);
     return (dst);
 }
