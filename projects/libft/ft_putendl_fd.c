@@ -1,7 +1,19 @@
-#include "linft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/04 15:21:53 by mdegraeu          #+#    #+#             */
+/*   Updated: 2021/11/04 15:22:06 by mdegraeu         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_putendl_fd(char *s, int fd)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-    ft_putstr_fd(s, fd);
-    write(fd, '\n', 1);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }
