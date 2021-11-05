@@ -6,7 +6,7 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:50:28 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/04 15:51:14 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/05 11:19:41 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strchr(char *str, int c);
 char	*ft_strrchr(char *str, int c);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strnstr(char *str, char *to_find, size_t len);
-int		ft_strncmp(char *s1, char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
