@@ -6,7 +6,7 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:50:28 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/05 11:19:41 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/05 13:42:51 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@
 # include <stdio.h>
 
 //FONCTIONS PART 1
-size_t	ft_strlen(char *str);
-char	*ft_strdup(char *src);
-char	*ft_strncat(char *dest, char *src, size_t len);
-size_t	ft_strlcat(char *dest, char *src, size_t size);
-char	*ft_strchr(char *str, int c);
-char	*ft_strrchr(char *str, int c);
-int		ft_strcmp(char *s1, char *s2);
-char	*ft_strnstr(char *str, char *to_find, size_t len);
+size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *src);
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strrchr(const char *str, int c);
+int		ft_strcmp(const char *s1, const char *s2);
+char	*ft_strnstr(const char *str, const char *to_find, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
