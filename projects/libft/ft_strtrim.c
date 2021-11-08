@@ -26,28 +26,47 @@ static int	ft_is_set(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_index(char const *s,char const *set, unsigned int i)
+{
+	if (i == 0)
+		while (s[i] && ft_is_set(s[i], set))
+			i++;
+	else
+	{
+		i = ft_strlen(s) - 1;
+		while (s[i] && ft_is_set(s[i], set))
+		{
+			if (i == 0)
+				return (i);
+			i--;
+		}
+	}
+	return (i);
+}
+
+char	*ft_strtrim(char const *s, char const *set)
 {
 	unsigned int	i;
 	unsigned int	j;
 	unsigned int	x;
 	char			*str;
 
-	i = 0;
-	j = 0;
-	while (s1[i])
-		i++;
-	while (ft_is_set(s1[i], set))
-		i--;
-	x = i;
-	i = 0;
-	while (ft_is_set(s1[i], set))
-		i++;
-	str = malloc(sizeof(char) * (x - i + 1));
+	if (!s)
+		return (NULL);
+	x = 0;
+	i = ft_index(s, set, x);
+	x = ft_index(s, set, i);
+	if (i == x)
+	{
+		str = ft_strdup(s);
+		return (str);
+	}
+	str = malloc(sizeof(char) * (x - i + 2));
 	if (!str)
 		return (NULL);
+	j = 0;
 	while (i <= x)
-		str[j++] = s1[i++];
+		str[j++] = s[i++];
 	str[j] = '\0';
 	return (str);
 }

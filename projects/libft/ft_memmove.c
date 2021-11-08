@@ -15,24 +15,23 @@
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	size_t	i;
-	char	*dest;
-	char	*temp;
+	char	*dst_c;
+	char	*src_c;
 
 	i = 0;
 	if (!dst && !src)
 		return (NULL);
-	temp = ft_strdup((char *)src);
-	dest = (char *)dst;
+	dst_c = (char *)dst;
+	src_c = (char *)src;
 	if (src < dst)
 	{
 		while (i < n)
 		{
-			dest[i] = temp[i];
+			dst_c[n - i - 1] = src_c[n - i -1];
 			i++;
 		}
 	}
 	else
 		ft_memcpy(dst, src, n);
-	free (temp);
-	return (dst);
+	return (dst_c);
 }
