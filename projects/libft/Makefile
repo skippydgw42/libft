@@ -50,6 +50,8 @@ LIST =	ft_lstnew.c\
 	ft_lstadd_back.c\
 	ft_lstdelone.c\
 	ft_lstclear.c\
+	ft_lstiter.c\
+	ft_lstmap.c\
 	${SRCS}
 
 all :		${NAME}
@@ -65,7 +67,7 @@ bonus :		${OBJS_BONUS}
 	
 
 clean :
-	/bin/rm -f ${OBJS}
+	/bin/rm -f ${OBJS} ${OBJS_BONUS}
 
 fclean :	clean
 	/bin/rm -f ${NAME}
