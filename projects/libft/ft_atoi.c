@@ -6,7 +6,7 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:05:27 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/09 14:57:07 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/10 12:30:12 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int	ft_atoi(const char *str)
 			return (0);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
+		result = result * 10 + (str[i++] - '0');
 	return (result * sign);
 }

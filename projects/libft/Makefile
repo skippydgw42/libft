@@ -6,7 +6,9 @@ CFLAGS = -Wall -Werror -Wextra -I./includes
 
 OBJS = ${SRCS:.c=.o}
 
-OBJS_BONUS = ${LIST:.c=.o}
+OBJS_BONUS = ${LIST_BONUS:.c=.o}
+
+HEADER = libft.h
 
 SRCS = 	ft_isalpha.c\
 	ft_isdigit.c\
@@ -43,7 +45,7 @@ SRCS = 	ft_isalpha.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
 
-LIST =	ft_lstnew.c\
+LIST_BONUS =	ft_lstnew.c\
 	ft_lstadd_front.c\
 	ft_lstsize.c\
 	ft_lstlast.c\
@@ -59,10 +61,10 @@ all :		${NAME}
 .c.o :
 	${CC} ${CFLAGS}  -c $< -o ${<:.c=.o}
 
-${NAME} :	${OBJS}
+${NAME} :	${OBJS} ${HEADER}
 	ar -cr ${NAME} ${OBJS}
 
-bonus :		${OBJS_BONUS}
+bonus :		${OBJS_BONUS} ${HEADER}
 	ar -cr ${NAME} ${OBJS_BONUS}
 	
 

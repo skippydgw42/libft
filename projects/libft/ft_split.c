@@ -6,13 +6,13 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 15:24:03 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/04 15:54:12 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/10 12:05:09 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_split_count(char const *s, char c)
+static unsigned int	ft_split_count(char const *s, char c)
 {
 	unsigned int	i;
 	unsigned int	ct;
@@ -31,41 +31,56 @@ unsigned int	ft_split_count(char const *s, char c)
 	return (ct);
 }
 
-int	ft_lit_str(char const *s, char c)
+static int	ft_lit_str(char const *s, char c)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] != c && s[i])
 		i++;
 	return (i);
+}
+
+static char	*ft_cpy_str(char const *s, char c, unsigned int i)
+{
+	unsigned int	j;
+	char			*str;
+
+	j = 0;
+	str = ft_calloc(ft_lit_str(&s[i], c) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s[i] != c && s[i])
+	{
+		str[j] = s[i];
+		i++;
+		j++;
+	}
+	str[j] = '\0';
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	i;
-	unsigned int	j;
 	unsigned int	k;
 	char			**split;
 
 	i = 0;
-	k = -1;
+	k = 0;
 	if (!s)
 		return (NULL);
-	split = malloc(sizeof(*split) * (ft_split_count(s, c) + 1));
+	split = ft_calloc(ft_split_count(s, c) + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
-	while (++k < ft_split_count(s, c))
+	while (k < ft_split_count(s, c))
 	{
-		while (s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
-		split[k] = malloc(sizeof(**split) * (ft_lit_str(&s[i], c + 1)));
-		if (!split[k])
-			return (NULL);
-		j = 0;
+		split[k] = ft_cpy_str(s, c, i);
+		k++;
 		while (s[i] != c && s[i])
-			split[k][j++] = s[i++];
-		split[k][j] = '\0';
+			i++;
 	}
 	split[k] = 0;
 	return (split);

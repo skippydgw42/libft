@@ -6,7 +6,7 @@
 /*   By: mdegraeu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 11:43:49 by mdegraeu          #+#    #+#             */
-/*   Updated: 2021/11/09 11:55:04 by mdegraeu         ###   ########lyon.fr   */
+/*   Updated: 2021/11/10 11:54:09 by mdegraeu         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
+	t_list	*ptr;
+
 	while ((*lst) != 0)
 	{
-		ft_lstdelone((*lst), del);
-		(*lst) = (*lst)->next;
+		ptr = (*lst)->next;
+		(del)((*lst)->content);
+		free(*lst);
+		(*lst) = ptr;
 	}
 	*lst = NULL;
 }
